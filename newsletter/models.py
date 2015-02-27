@@ -470,11 +470,11 @@ class Article(models.Model):
         return self.title
 
 
-    def save(self):
+    def save(self, *args, **kwargs):
         if self.pk is None:
             # if saving a new object get the next available Article ordering as to assure uniqueness.
             self.sortorder = Article.get_next_order()
-        super(Article, self).save()
+        super(Article, self).save(*args, **kwargs)
 
 
 class Message(models.Model):
@@ -513,10 +513,10 @@ class Message(models.Model):
         verbose_name_plural = _('messages')
         unique_together = ('slug', 'newsletter')
 
-    def save(self):
+    def save(self, *args, **kwargs):
         if self.pk is None:
             self.newsletter = Newsletter.get_default()
-        super(Message, self).save()
+        super(Message, self).save(*args, **kwargs)
 
     @classmethod
     def get_default(cls):
@@ -634,7 +634,7 @@ class Submission(models.Model):
         submission.subscriptions = message.newsletter.get_subscriptions()
         return submission
 
-    def save(self):
+    def save(self, *args, **kwargs):
         """ Set the newsletter from associated message upon saving. """
         assert self.message.newsletter
 
@@ -643,7 +643,7 @@ class Submission(models.Model):
         if self.pk is None:
             self.message = Message.get_default()
 
-        return super(Submission, self).save()
+        return super(Submission, self).save(*args, **kwargs)
 
     @permalink
     def get_absolute_url(self):
