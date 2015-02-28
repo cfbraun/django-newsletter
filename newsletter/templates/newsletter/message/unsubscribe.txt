@@ -1,4 +1,4 @@
-{% blocktrans %}
+{% load i18n %}{% blocktrans %}
 Dear {{ subscription.name }},
 
 you, or someone in your name requested unsubscription from {{ newsletter.title }}.

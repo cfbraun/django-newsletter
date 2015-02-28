@@ -1,1 +1,1 @@
-{% blocktrans %}{{ newsletter.title }} - Update information{% endblocktrans %}
+{% load i18n %}{% blocktrans %}{{ newsletter.title }} - Update information{% endblocktrans %}

@@ -1,1 +1,1 @@
-{% blocktrans %}{{ newsletter.title }} - Confirm unsubscription{% endblocktrans %}
+{% load i18n %}{% blocktrans %}{{ newsletter.title }} - Confirm unsubscription{% endblocktrans %}
