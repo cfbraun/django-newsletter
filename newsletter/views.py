@@ -40,8 +40,14 @@ from .forms import (
 from .settings import newsletter_settings
 from .utils import ACTIONS
 
+class LoginRequiredMixin(object):
+    @classmethod
+    def as_view(cls, **initkwargs):
+        view = super(LoginRequiredMixin, cls).as_view(**initkwargs)
+        return login_required(view)
 
-class NewsletterViewBase(object):
+
+class NewsletterViewBase(LoginRequiredMixin):
     """ Base class for newsletter views. """
     queryset = Newsletter.on_site.filter(visible=True)
     allow_empty = False
@@ -133,7 +139,7 @@ class NewsletterListView(NewsletterViewBase, ListView):
         return formset
 
 
-class ProcessUrlDataMixin(object):
+class ProcessUrlDataMixin(LoginRequiredMixin):
     """
     Mixin providing the ability to process args and kwargs from url
     before dispatching request.
