@@ -4,9 +4,10 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Subscription to {{ newsletter.title }}</title>
+    <title>{% blocktrans %}Subscription to {{ newsletter.title }}{% endblocktrans %}</title>
 </head>
 <body>
+{% blocktrans %}
 Dear {{ subscription.name }},
 
 you, or someone in your name requested a subscription to {{ newsletter.title }}.
@@ -16,5 +17,6 @@ http://{{ site.domain }}{{ subscription.subscribe_activate_url }}
 
 Kind regards,
 {{ newsletter.sender }}
+{% endblocktrans %}
 </body>
 </html>

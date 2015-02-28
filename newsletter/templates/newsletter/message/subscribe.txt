@@ -1,3 +1,4 @@
+{% blocktrans %}
 Dear {{ subscription.name }},
 
 you, or someone in your name requested a subscription to {{ newsletter.title }}.
@@ -7,3 +8,4 @@ http://{{ site.domain }}{{ subscription.subscribe_activate_url }}
 
 Kind regards,
 {{ newsletter.sender }}
+{% endblocktrans %}

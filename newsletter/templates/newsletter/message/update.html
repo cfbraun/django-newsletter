@@ -4,9 +4,10 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Update of subscription to {{ newsletter.title }}</title>
+    <title>{% blocktrans %}Update of subscription to {{ newsletter.title }}{% endblocktrans %}</title>
 </head>
 <body>
+{% blocktrans %}
 Dear {{ subscription.name }},
 
 you, or someone in your name requested updating your personal information for {{ newsletter.title }}.
@@ -16,5 +17,6 @@ http://{{ site.domain }}{{ subscription.update_activate_url }}
 
 Kind regards,
 {{ newsletter.sender }}
+{% endblocktrans %}
 </body>
 </html>

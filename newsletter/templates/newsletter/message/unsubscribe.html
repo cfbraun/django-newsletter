@@ -4,9 +4,10 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unsubscription from {{ newsletter.title }}</title>
+    <title>{% blocktrans %}Unsubscription from {{ newsletter.title }}{% endblocktrans %}</title>
 </head>
 <body>
+{% blocktrans %}
 Dear {{ subscription.name }},
 
 you, or someone in your name requested unsubscription from {{ newsletter.title }}.
@@ -16,5 +17,6 @@ http://{{ site.domain }}{{ subscription.unsubscribe_activate_url }}
 
 Kind regards,
 {{ newsletter.sender }}
+{% endblocktrans %}
 </body>
 </html>

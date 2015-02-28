@@ -1,1 +1,1 @@
-{{ newsletter.title }} - Update information
+{% blocktrans %}{{ newsletter.title }} - Update information{% endblocktrans %}

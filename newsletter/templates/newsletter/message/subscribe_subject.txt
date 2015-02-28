@@ -1,1 +1,1 @@
-{{ newsletter.title }} - Confirm subscription
+{% blocktrans %}{{ newsletter.title }} - Confirm subscription{% endblocktrans %}
